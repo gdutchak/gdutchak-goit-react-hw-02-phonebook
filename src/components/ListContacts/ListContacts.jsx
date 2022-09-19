@@ -8,13 +8,7 @@ export const ListContacts = ({ contacts, filter, onDelete }) => (
 )
 
 ListContacts.propTypes = {
-    contacts: PropTypes.arrayOf(
-        PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            number: PropTypes.string.isRequired,
-            id: PropTypes.string.isRequired,
-        })
-    ),
+    contacts: PropTypes.array,
     filter: PropTypes.string,
     onDelete: PropTypes.func,
 }

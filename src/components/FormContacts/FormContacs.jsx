@@ -25,9 +25,15 @@ export class FormContacts extends Component {
             name: this.state.name,
             number: this.state.number,
         }
-        this.props.submit(data)
+        if (this.props.contacts.find(contact => contact.name === data.name)) {
+            alert(`${data.name} is already in contacts!`)
+
+        } else {
+            this.props.submit(data)
+        }
         this.setState({ number: '', name: '' })
     }
+
     render() {
         const { name, number } = this.state;
         return (

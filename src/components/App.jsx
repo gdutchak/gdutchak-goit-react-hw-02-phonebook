@@ -20,8 +20,7 @@ export class App extends Component {
   }
   submitContacts = data => {
     this.setState(prevState => ({
-      contacts:
-        [data, ...prevState.contacts]
+      contacts: [data, ...prevState.contacts]
     }))
   }
 
@@ -30,7 +29,7 @@ export class App extends Component {
     return (
       <div style={{ padding: 40 }}>
         <h1>Phonebook</h1>
-        <FormContacts submit={this.submitContacts}></FormContacts>
+        <FormContacts submit={this.submitContacts} contacts={contacts}></FormContacts>
         <Filter search={this.searchName} filter={filter}></Filter>
         <h2>Contacts</h2>
         <ListContacts contacts={contacts} filter={filter} onDelete={this.deleteContacts}></ListContacts>

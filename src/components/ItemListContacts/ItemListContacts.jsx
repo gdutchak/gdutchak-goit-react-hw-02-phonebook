@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
+import { ButtonList, Item } from './ItemListContacts.styled';
 
 export const ItemListContacts = ({ name, number, id, filter, onDelete }) => {
     if (name.toLowerCase().includes(filter.toLowerCase())) {
-        return <li key={id}>{name}: {number}
-            <button type='button' onClick={() => onDelete(name)}>Delete</button></li>
+        return <Item key={id}>{name}: {number}
+            <ButtonList type='ButtonList' onClick={() => onDelete(name)}>Delete</ButtonList></Item>
     }
 }
 

@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
+import { Input, Label } from 'components/AddContacts/AddContact.styled';
 
 export const Filter = ({ search, filter }) => (
-    <label>Find contacts by name
-        <input type="text" name='filter' onInput={search} value={filter} />
-    </label>
+    <Label>Find contacts by name
+        <Input type="text" name='filter' onInput={search} value={filter} />
+    </Label>
 )
 
 Filter.propTypes = {
