@@ -14,6 +14,7 @@ export class App extends Component {
   onFilterContacts = e => {
     this.setState({ filter: e.currentTarget.value.toLowerCase() });
   }
+
   deleteContacts = name => {
     this.setState(prevState => ({ contacts: prevState.contacts.filter(contact => contact.name !== name) }))
   }
@@ -25,6 +26,7 @@ export class App extends Component {
 
   render() {
     const { contacts, filter } = this.state;
+
     return (
       <div style={{ padding: 40 }}>
         <h1>Phonebook</h1>
