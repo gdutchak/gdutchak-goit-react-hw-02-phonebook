@@ -1,4 +1,4 @@
-import PropTypes, { shape } from 'prop-types';
+import PropTypes from 'prop-types';
 import { Item, ButtonList } from './ListContacts.styled';
 
 export const ListContacts = ({ onSearch, onDelete }) => (
@@ -10,6 +10,10 @@ export const ListContacts = ({ onSearch, onDelete }) => (
 
 
 ListContacts.propTypes = {
-    onSearch: PropTypes.arrayOf(shape).isRequired,
+    onSearch: PropTypes.arrayOf(shape({
+        name: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
+        id: PropTypes.string.isRequired,
+    })).isRequired,
     onDelete: PropTypes.func.isRequired,
 }

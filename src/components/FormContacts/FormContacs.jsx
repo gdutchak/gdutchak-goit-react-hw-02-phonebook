@@ -44,5 +44,7 @@ export class FormContacts extends Component {
 
 FormContacts.propTypes = {
     submit: PropTypes.func.isRequired,
-    contacts: PropTypes.arrayOf(shape).isRequired,
+    contacts: PropTypes.arrayOf(shape({
+        name: PropTypes.string.isRequired,
+    })).isRequired,
 }
