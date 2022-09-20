@@ -24,9 +24,9 @@ export const AddContacts = ({ submit, contactName, valueName, contactNumber, val
     </form>)
 
 AddContacts.propTypes = {
-    submit: PropTypes.func,
-    contactName: PropTypes.func,
+    submit: PropTypes.func.isRequired,
+    contactName: PropTypes.func.isRequired,
     valueName: PropTypes.string.isRequired,
-    contactNumber: PropTypes.func,
+    contactNumber: PropTypes.func.isRequired,
     valueNum: PropTypes.string.isRequired,
 }

@@ -8,6 +8,6 @@ export const Filter = ({ search, filter }) => (
 )
 
 Filter.propTypes = {
-    search: PropTypes.func,
-    filter: PropTypes.string,
+    search: PropTypes.func.isRequired,
+    filter: PropTypes.string.isRequired,
 }

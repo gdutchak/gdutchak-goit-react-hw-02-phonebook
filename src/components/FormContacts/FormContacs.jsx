@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes, { shape } from 'prop-types';
 import { Component } from 'react';
 import { AddContacts } from 'components/AddContacts/AddContacts';
 import { nanoid } from 'nanoid';
@@ -43,5 +43,7 @@ export class FormContacts extends Component {
 }
 
 FormContacts.propTypes = {
-    submit: PropTypes.func,
+    submit: PropTypes.func.isRequired,
+    contacts: PropTypes.arrayOf(shape).isRequired,
+    submit: PropTypes.func.isRequired,
 }
