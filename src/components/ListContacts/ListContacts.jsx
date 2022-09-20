@@ -8,7 +8,9 @@ export const ListContacts = ({ contacts, filter, onDelete }) => (
                 return <Item key={id}>{name}: {number}
                     <ButtonList type='ButtonList' onClick={() => onDelete(name)}>Delete</ButtonList></Item>
             }
-        })}
+            return console.log('good');
+        }
+        )}
     </ul>
 )
 
