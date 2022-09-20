@@ -12,7 +12,15 @@ export class App extends Component {
     filter: '',
   }
   onFilterContacts = e => {
-    this.setState({ filter: e.currentTarget.value.toLowerCase() });
+    this.setState({ filter: e.currentTarget.value });
+  }
+  onSearchContact = () => {
+    const { contacts, filter } = this.state;
+    if (!filter) {
+      return contacts;
+    }
+    const valueFilter = filter.toLowerCase();
+    return contacts.filter(({ name }) => name.toLowerCase().includes(valueFilter))
   }
 
   deleteContacts = name => {
@@ -26,6 +34,7 @@ export class App extends Component {
 
   render() {
     const { contacts, filter } = this.state;
+    const visibleContacts = this.onSearchContact();
 
     return (
       <div style={{ padding: 40 }}>
@@ -33,7 +42,7 @@ export class App extends Component {
         <FormContacts submit={this.submitContacts} contacts={contacts}></FormContacts>
         <Filter search={this.onFilterContacts} filter={filter}></Filter>
         <h2>Contacts</h2>
-        <ListContacts contacts={contacts} filter={filter} onDelete={this.deleteContacts}></ListContacts>
+        <ListContacts onDelete={this.deleteContacts} onSearch={visibleContacts}></ListContacts>
       </div >
     );
   }

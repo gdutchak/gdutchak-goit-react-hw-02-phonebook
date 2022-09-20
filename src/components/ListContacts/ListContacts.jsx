@@ -1,25 +1,15 @@
 import PropTypes, { shape } from 'prop-types';
 import { Item, ButtonList } from './ListContacts.styled';
 
-export const ListContacts = ({ contacts, filter, onDelete }) => (
+export const ListContacts = ({ onSearch, onDelete }) => (
     <ul>
-        {contacts.map(({ name, number, id }) => {
-            if (name.toLowerCase().includes(filter)) {
-                return <Item key={id}>{name}: {number}
-                    <ButtonList type='ButtonList' onClick={() => onDelete(name)}>Delete</ButtonList></Item>
-            }
-            return console.log('good');
-        }
-        )}
+        {onSearch.map(({ name, number, id }) => <Item key={id}>{name}: {number}
+            <ButtonList type='ButtonList' onClick={() => onDelete(name)}>Delete</ButtonList></Item>)}
     </ul>
 )
 
+
 ListContacts.propTypes = {
-    contacts: PropTypes.arrayOf(shape({
-        name: PropTypes.string.isRequired,
-        number: PropTypes.string.isRequired,
-        id: PropTypes.string.isRequired,
-    })),
-    filter: PropTypes.string.isRequired,
+    onSearch: PropTypes.arrayOf(shape).isRequired,
     onDelete: PropTypes.func.isRequired,
 }
