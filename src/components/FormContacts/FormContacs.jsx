@@ -25,7 +25,7 @@ export class FormContacts extends Component {
             name: this.state.name,
             number: this.state.number,
         }
-        if (this.props.contacts.find(contact => contact.name === data.name)) {
+        if (this.props.contacts.find(contact => contact.name.toLowerCase() === data.name.toLowerCase())) {
             alert(`${data.name} is already in contacts!`)
 
         } else {
@@ -45,5 +45,4 @@ export class FormContacts extends Component {
 FormContacts.propTypes = {
     submit: PropTypes.func.isRequired,
     contacts: PropTypes.arrayOf(shape).isRequired,
-    submit: PropTypes.func.isRequired,
 }

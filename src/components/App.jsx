@@ -11,9 +11,8 @@ export class App extends Component {
     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },],
     filter: '',
   }
-
-  searchName = (e) => {
-    this.setState({ filter: e.currentTarget.value });
+  onFilterContacts = e => {
+    this.setState({ filter: e.currentTarget.value.toLowerCase() });
   }
   deleteContacts = name => {
     this.setState(prevState => ({ contacts: prevState.contacts.filter(contact => contact.name !== name) }))
@@ -30,7 +29,7 @@ export class App extends Component {
       <div style={{ padding: 40 }}>
         <h1>Phonebook</h1>
         <FormContacts submit={this.submitContacts} contacts={contacts}></FormContacts>
-        <Filter search={this.searchName} filter={filter}></Filter>
+        <Filter search={this.onFilterContacts} filter={filter}></Filter>
         <h2>Contacts</h2>
         <ListContacts contacts={contacts} filter={filter} onDelete={this.deleteContacts}></ListContacts>
       </div >

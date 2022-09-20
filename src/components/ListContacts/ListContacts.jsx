@@ -4,10 +4,12 @@ import { Item, ButtonList } from './ListContacts.styled';
 export const ListContacts = ({ contacts, filter, onDelete }) => (
     <ul>
         {contacts.map(({ name, number, id }) => {
-            if (name.toLowerCase().includes(filter.toLowerCase())) {
+            if (name.toLowerCase().includes(filter)) {
                 return <Item key={id}>{name}: {number}
                     <ButtonList type='ButtonList' onClick={() => onDelete(name)}>Delete</ButtonList></Item>
             }
+            return <Item key={id}>{name}: {number}
+                <ButtonList type='ButtonList' onClick={() => onDelete(name)}>Delete</ButtonList></Item>
         })}
     </ul>
 )
