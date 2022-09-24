@@ -10,7 +10,7 @@ export const ListContacts = ({ onSearch, onDelete }) => (
 
 
 ListContacts.propTypes = {
-    onSearch: PropTypes.arrayOf(PropTypes.string({
+    onSearch: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string.isRequired,
         number: PropTypes.string.isRequired,
         id: PropTypes.string.isRequired,
